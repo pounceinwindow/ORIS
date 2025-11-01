@@ -1,4 +1,3 @@
-﻿// добавь это:
 using System.Net;
 using System.Reflection;
 using CustomHttpServer.Core.Handlers;
