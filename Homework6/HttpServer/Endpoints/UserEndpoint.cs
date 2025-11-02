@@ -12,36 +12,24 @@ namespace HttpServer.Endpoints;
 internal class UserEndpoint
 {
     [HttpGet("/users")]
-    public async Task GetUser(HttpListenerContext ctx)
+    public async Task GetUsers(HttpListenerContext ctx)
     {
         try
         {
-            var conn = SettingsManager.Instance.Settings.ConnectionString!;
+            var orm = new ORMContext(SettingsManager.Instance.Settings.ConnectionString!);
             if (int.TryParse(ctx.Request.QueryString["id"], out var id))
             {
-                var orm = new ORMContext(conn);
-                var UserModel = orm.ReadById<UserModel>(id, "users");
-                if (UserModel == null)
+                var user = orm.ReadById<UserModel>(id, "users");
+                if (user == null)
                 {
                     await Write(ctx, "{\"error\":\"not_found\"}", 404, "application/json; charset=utf-8");
                     return;
                 }
-
-                await Write(ctx, JsonSerializer.Serialize(UserModel), 200, "application/json; charset=utf-8");
+                await Write(ctx, JsonSerializer.Serialize(user), 200, "application/json; charset=utf-8");
                 return;
             }
 
-            using var ds = NpgsqlDataSource.Create(conn);
-            using var cmd = ds.CreateCommand("SELECT id, name, email FROM users");
-            using var r = cmd.ExecuteReader();
-            var list = new List<UserModel>();
-            while (r.Read())
-                list.Add(new UserModel
-                {
-                    Id = r.IsDBNull(0) ? 0 : r.GetInt32(0),
-                    Name = r.IsDBNull(1) ? null : r.GetString(1),
-                    Email = r.IsDBNull(2) ? null : r.GetString(2)
-                });
+            var list = orm.ReadAll<UserModel>("users");
             await Write(ctx, JsonSerializer.Serialize(list), 200, "application/json; charset=utf-8");
         }
         catch
