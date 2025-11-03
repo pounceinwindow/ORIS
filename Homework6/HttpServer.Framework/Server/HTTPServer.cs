@@ -16,7 +16,7 @@ public sealed class HttpServer
         var prefix = $"{settingsManager.Settings.Domain}:{settingsManager.Settings.Port}/";
         _listener.Prefixes.Add(prefix);
         _listener.Start();
-        Console.WriteLine($"{prefix}auth");
+        Console.WriteLine($"{prefix}users");
         Console.WriteLine("Сервер ожидает...");
         Receive();
     }

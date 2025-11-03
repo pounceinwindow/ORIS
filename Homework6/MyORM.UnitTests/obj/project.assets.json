@@ -1093,6 +1093,28 @@
           }
         }
       },
+      "NUnit/4.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/nunit.framework.dll": {
+            "related": ".legacy.xml;.xml"
+          },
+          "lib/net8.0/nunit.framework.legacy.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/nunit.framework.dll": {
+            "related": ".legacy.xml;.xml"
+          },
+          "lib/net8.0/nunit.framework.legacy.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
       "NUnit3TestAdapter/6.0.0-beta.1": {
         "type": "package",
         "dependencies": {
@@ -1460,14 +1482,60 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
+      "HttpServer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "HttpServer.Framework": "1.0.0",
+          "MiniTemplateEngine": "1.0.0",
+          "MyORM": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/HttpServer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HttpServer.dll": {}
+        }
+      },
       "HttpServer.Framework/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "MiniTemplateEngine": "1.0.0",
+          "MyORM": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/HttpServer.Framework.dll": {}
         },
         "runtime": {
           "bin/placeholder/HttpServer.Framework.dll": {}
+        }
+      },
+      "MiniTemplateEngine/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/MiniTemplateEngine.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MiniTemplateEngine.dll": {}
+        }
+      },
+      "MiniTemplateEngine.UnitTests/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "MSTest": "3.6.4",
+          "Microsoft.NET.Test.Sdk": "17.12.0",
+          "MiniTemplateEngine": "1.0.0",
+          "NUnit": "4.4.0",
+          "NUnit3TestAdapter": "6.0.0-beta.1"
+        },
+        "compile": {
+          "bin/placeholder/MiniTemplateEngine.UnitTests.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MiniTemplateEngine.UnitTests.dll": {}
         }
       },
       "MyORM/1.0.0": {
@@ -3056,6 +3124,35 @@
         "postgresql.png"
       ]
     },
+    "NUnit/4.4.0": {
+      "sha512": "7IWJcT9xWNhG9dEGdgAWdH6maCE0eVbeVnizvXACKbAyxbjoJ9+WaEb8qsCTJi3hsb18AJBtoqvWa3G7YYUQfw==",
+      "type": "package",
+      "path": "nunit/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "NOTICES.md",
+        "README.md",
+        "THIRD_PARTY_NOTICES.md",
+        "build/NUnit.props",
+        "icon.png",
+        "lib/net462/nunit.framework.dll",
+        "lib/net462/nunit.framework.legacy.dll",
+        "lib/net462/nunit.framework.legacy.xml",
+        "lib/net462/nunit.framework.xml",
+        "lib/net6.0/nunit.framework.dll",
+        "lib/net6.0/nunit.framework.legacy.dll",
+        "lib/net6.0/nunit.framework.legacy.xml",
+        "lib/net6.0/nunit.framework.xml",
+        "lib/net8.0/nunit.framework.dll",
+        "lib/net8.0/nunit.framework.legacy.dll",
+        "lib/net8.0/nunit.framework.legacy.xml",
+        "lib/net8.0/nunit.framework.xml",
+        "nunit.4.4.0.nupkg.sha512",
+        "nunit.nuspec"
+      ]
+    },
     "NUnit3TestAdapter/6.0.0-beta.1": {
       "sha512": "/Uqm4hEKJ9eKdnOrcG7rq/roha57bsSsrKXociW1cfjw5+mKU0ytYDTi6LuPmyxC5EbYYeEs2ocl5aUKnsZkWg==",
       "type": "package",
@@ -3902,10 +3999,25 @@
         "version.txt"
       ]
     },
+    "HttpServer/1.0.0": {
+      "type": "project",
+      "path": "../HttpServer/HttpServer.csproj",
+      "msbuildProject": "../HttpServer/HttpServer.csproj"
+    },
     "HttpServer.Framework/1.0.0": {
       "type": "project",
       "path": "../HttpServer.Framework/HttpServer.Framework.csproj",
       "msbuildProject": "../HttpServer.Framework/HttpServer.Framework.csproj"
+    },
+    "MiniTemplateEngine/1.0.0": {
+      "type": "project",
+      "path": "../MiniTemplateEngine/MiniTemplateEngine.csproj",
+      "msbuildProject": "../MiniTemplateEngine/MiniTemplateEngine.csproj"
+    },
+    "MiniTemplateEngine.UnitTests/1.0.0": {
+      "type": "project",
+      "path": "../MiniTemplateEngine.UnitTests/MiniTemplateEngine.UnitTests.csproj",
+      "msbuildProject": "../MiniTemplateEngine.UnitTests/MiniTemplateEngine.UnitTests.csproj"
     },
     "MyORM/1.0.0": {
       "type": "project",
@@ -3915,9 +4027,12 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "HttpServer >= 1.0.0",
       "HttpServer.Framework >= 1.0.0",
       "MSTest >= 3.6.4",
       "Microsoft.NET.Test.Sdk >= 17.12.0",
+      "MiniTemplateEngine >= 1.0.0",
+      "MiniTemplateEngine.UnitTests >= 1.0.0",
       "MyORM >= 1.0.0",
       "NUnit3TestAdapter >= 6.0.0-beta.1"
     ]
@@ -3957,6 +4072,15 @@
           "projectReferences": {
             "C:\\Users\\adk03\\Downloads\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj": {
               "projectPath": "C:\\Users\\adk03\\Downloads\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj"
+            },
+            "C:\\Users\\adk03\\Downloads\\HttpServer\\HttpServer\\HttpServer.csproj": {
+              "projectPath": "C:\\Users\\adk03\\Downloads\\HttpServer\\HttpServer\\HttpServer.csproj"
+            },
+            "C:\\Users\\adk03\\Downloads\\HttpServer\\MiniTemplateEngine.UnitTests\\MiniTemplateEngine.UnitTests.csproj": {
+              "projectPath": "C:\\Users\\adk03\\Downloads\\HttpServer\\MiniTemplateEngine.UnitTests\\MiniTemplateEngine.UnitTests.csproj"
+            },
+            "C:\\Users\\adk03\\Downloads\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj": {
+              "projectPath": "C:\\Users\\adk03\\Downloads\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj"
             },
             "C:\\Users\\adk03\\Downloads\\HttpServer\\MyORM\\MyORM.csproj": {
               "projectPath": "C:\\Users\\adk03\\Downloads\\HttpServer\\MyORM\\MyORM.csproj"

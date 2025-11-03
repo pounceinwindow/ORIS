@@ -7,6 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\MiniTemplateEngine\MiniTemplateEngine.csproj"/>
+        <ProjectReference Include="..\MyORM\MyORM.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="core\HttpResponse\BaseEndpoint.cs">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Compile>
+        <Compile Update="core\HttpResponse\IResponseResult.cs">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Compile>
+        <Compile Update="core\HttpResponse\PageResult.cs">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Compile>
     </ItemGroup>
 
 </Project>

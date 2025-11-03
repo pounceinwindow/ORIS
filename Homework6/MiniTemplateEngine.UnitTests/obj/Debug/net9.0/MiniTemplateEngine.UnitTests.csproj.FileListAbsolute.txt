@@ -16,10 +16,6 @@ C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.
 C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.0\NUnit3.TestAdapter.dll
 C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.0\Attributes\ColumnAttribute.cs
-C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.0\Attributes\IgnoreAttribute.cs
-C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.0\Attributes\KeyAttribute.cs
-C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.0\Attributes\TableAttribute.cs
 C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.0\Services\EmailService.cs
 C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.0\Services\EmailServiceConst.cs
 C:\Users\adk03\Downloads\HttpServer\MiniTemplateEngine.UnitTests\bin\Debug\net9.0\email.json

@@ -11,7 +11,7 @@ internal class AuthEndpoint
     [HttpGet("/auth")]
     public string LoginPage()
     {
-        return "index.html";
+        return "auth/login.html";
     }
 
     [HttpPost("/auth")]

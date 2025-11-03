@@ -107,15 +107,24 @@
         <None Update="email.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+        <None Update="static\image\cactus.svg">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="static\image\worker.svg">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="static\auth\login.html">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="static\auth\"/>
-        <Folder Include="static\cactus\"/>
         <ProjectReference Include="..\MyORM\MyORM.csproj"/>
         <ProjectReference Include="..\HttpServer.Framework\HttpServer.Framework.csproj"/>
         <ProjectReference Include="..\HttpServer.Framework\HttpServer.Framework.csproj"/>
         <ProjectReference Include="..\MyORM\MyORM.csproj"/>
+        <ProjectReference Include="..\MiniTemplateEngine\MiniTemplateEngine.csproj"/>
+
     </ItemGroup>
 
 </Project>

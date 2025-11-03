@@ -19,6 +19,9 @@
 
     <ItemGroup>
         <ProjectReference Include="..\HttpServer.Framework\HttpServer.Framework.csproj"/>
+        <ProjectReference Include="..\HttpServer\HttpServer.csproj"/>
+        <ProjectReference Include="..\MiniTemplateEngine.UnitTests\MiniTemplateEngine.UnitTests.csproj"/>
+        <ProjectReference Include="..\MiniTemplateEngine\MiniTemplateEngine.csproj"/>
         <ProjectReference Include="..\MyORM\MyORM.csproj"/>
     </ItemGroup>
 

@@ -1,4 +1,3 @@
-using System.Text;
 using Npgsql;
 
 namespace MyORMLibrary;
@@ -17,15 +16,9 @@ public class ORMContext
         using var dataSource = NpgsqlDataSource.Create(_connectionString);
         var props = typeof(T).GetProperties().ToList();
         var cols = props.Skip(1).Select(p => p.Name.ToLower());
-        var sb = new StringBuilder();
 
-        sb.Append($"INSERT INTO {tableName.ToLower()} (");
-        sb.Append(string.Join(",", cols));
-        sb.Append(") VALUES (");
-        sb.Append(string.Join(",", cols.Select(c => "@" + c)));
-        sb.Append(") RETURNING *;");
-
-        var cmd = dataSource.CreateCommand(sb.ToString());
+        var cmd = dataSource.CreateCommand(
+            $"INSERT INTO {tableName.ToLower()} ( {string.Join(",", cols)} ) VALUES ( {string.Join(",", cols.Select(c => "@" + c))} ) RETURNING *;");
 
         foreach (var p in props.Skip(1))
             cmd.Parameters.AddWithValue(p.Name.ToLower(), p.GetValue(entity) ?? DBNull.Value);
@@ -102,4 +95,3 @@ public class ORMContext
         return list;
     }
 }
-

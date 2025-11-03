@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using HttpServer.Framework.Settings;
+using Npgsql;
 
 namespace MyORMLibrary.Tests;
 
@@ -30,23 +31,16 @@ TRUNCATE {Table};";
     public void Crud_Works()
     {
         var orm = new ORMContext(_conn);
-        var created = orm.Create(new TestUser { Name = "Alice", Email = "a@b.com" }, Table);
+        var created = orm.Create(new UserModel { Name = "Alice", Email = "a@b.com" }, Table);
         Assert.IsTrue(created.Id > 0);
-        var byId = orm.ReadById<TestUser>(created.Id, Table);
+        var byId = orm.ReadById<UserModel>(created.Id, Table);
         Assert.IsNotNull(byId);
         Assert.AreEqual("a@b.com", byId.Email);
-        orm.Update(created.Id, new TestUser { Id = created.Id, Name = "Alice2", Email = "a2@b.com" }, Table);
-        var afterUpd = orm.ReadById<TestUser>(created.Id, Table);
+        orm.Update(created.Id, new UserModel { Id = created.Id, Name = "Alice2", Email = "a2@b.com" }, Table);
+        var afterUpd = orm.ReadById<UserModel>(created.Id, Table);
         Assert.AreEqual("Alice2", afterUpd.Name);
         orm.Delete(created.Id, Table);
-        var afterDel = orm.ReadById<TestUser>(created.Id, Table);
+        var afterDel = orm.ReadById<UserModel>(created.Id, Table);
         Assert.IsNull(afterDel);
     }
-}
-
-public class TestUser
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Email { get; set; }
 }

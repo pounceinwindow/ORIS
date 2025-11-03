@@ -236,13 +236,11 @@ C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\Services\EmailSe
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\Services\EmailServiceConst.cs
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\email.json
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\settings.json
-C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\cactus.svg
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\index.html
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\loginflower\forget.html
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\loginflower\index.html
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\loginflower\register.html
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\loginflower\style.css
-C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\worker.svg
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\bonx\404.html
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\bonx\about.html
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\bonx\all-game.html
@@ -491,3 +489,12 @@ C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\MyORM.pdb
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\Npgsql.dll
+C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\Abstraction\IHtmlTemplateRenderer.cs
+C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\MiniTemplateEngine.dll
+C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\MiniTemplateEngine.pdb
+C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\core\HttpResponse\BaseEndpoint.cs
+C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\core\HttpResponse\IResponseResult.cs
+C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\core\HttpResponse\PageResult.cs
+C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\auth\login.html
+C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\image\cactus.svg
+C:\Users\adk03\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\image\worker.svg

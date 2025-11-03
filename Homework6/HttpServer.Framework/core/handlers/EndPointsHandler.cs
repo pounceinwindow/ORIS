@@ -2,6 +2,7 @@
 using System.Reflection;
 using HttpServer.Framework.core.Abstruct;
 using HttpServer.Framework.core.Attributes;
+using HttpServer.Framework.Core.HttpResponse;
 using static HttpServer.Framework.Server.HttpServer;
 
 namespace HttpServer.Framework.core.handlers;
@@ -18,14 +19,8 @@ internal class EndpointsHandler : Handler
             .Where(a => !a.IsDynamic)
             .SelectMany(a =>
             {
-                try
-                {
-                    return a.GetTypes();
-                }
-                catch (ReflectionTypeLoadException ex)
-                {
-                    return ex.Types.Where(t => t != null)!;
-                }
+                try { return a.GetTypes(); }
+                catch (ReflectionTypeLoadException ex) { return ex.Types.Where(t => t != null)!; }
             })
             .Where(t => t != null && t.GetCustomAttribute<EndpointAttribute>() != null)
             .ToList();
@@ -86,6 +81,9 @@ internal class EndpointsHandler : Handler
 
         try
         {
+            var setCtx = endpointType.GetMethod("SetContext", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            setCtx?.Invoke(instance, new object[] { context });
+
             object? result;
             var ps = method.GetParameters();
 
@@ -98,16 +96,20 @@ internal class EndpointsHandler : Handler
             {
                 t.GetAwaiter().GetResult();
                 var tt = t.GetType();
-                if (tt.IsGenericType)
-                    result = tt.GetProperty("Result")?.GetValue(t);
-                else
-                    result = null;
+                result = tt.IsGenericType ? tt.GetProperty("Result")?.GetValue(t) : null;
             }
 
             if (result is string s)
             {
                 var path = s.StartsWith("/") ? s.TrimStart('/') : s;
                 SendStaticResponse(context, HttpStatusCode.OK, path);
+                return;
+            }
+
+            if (result is IResponseResult rr)
+            {
+                rr.Execute(context);
+                return;
             }
         }
         catch

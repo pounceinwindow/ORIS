@@ -691,11 +691,25 @@
       "HttpServer.Framework/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "MiniTemplateEngine": "1.0.0",
+          "MyORM": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/HttpServer.Framework.dll": {}
         },
         "runtime": {
           "bin/placeholder/HttpServer.Framework.dll": {}
+        }
+      },
+      "MiniTemplateEngine/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/MiniTemplateEngine.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MiniTemplateEngine.dll": {}
         }
       },
       "MyORM/1.0.0": {
@@ -2080,6 +2094,11 @@
       "path": "../HttpServer.Framework/HttpServer.Framework.csproj",
       "msbuildProject": "../HttpServer.Framework/HttpServer.Framework.csproj"
     },
+    "MiniTemplateEngine/1.0.0": {
+      "type": "project",
+      "path": "../MiniTemplateEngine/MiniTemplateEngine.csproj",
+      "msbuildProject": "../MiniTemplateEngine/MiniTemplateEngine.csproj"
+    },
     "MyORM/1.0.0": {
       "type": "project",
       "path": "../MyORM/MyORM.csproj",
@@ -2089,6 +2108,7 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "HttpServer.Framework >= 1.0.0",
+      "MiniTemplateEngine >= 1.0.0",
       "MyORM >= 1.0.0"
     ]
   },
@@ -2127,6 +2147,9 @@
           "projectReferences": {
             "C:\\Users\\adk03\\Downloads\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj": {
               "projectPath": "C:\\Users\\adk03\\Downloads\\HttpServer\\HttpServer.Framework\\HttpServer.Framework.csproj"
+            },
+            "C:\\Users\\adk03\\Downloads\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj": {
+              "projectPath": "C:\\Users\\adk03\\Downloads\\HttpServer\\MiniTemplateEngine\\MiniTemplateEngine.csproj"
             },
             "C:\\Users\\adk03\\Downloads\\HttpServer\\MyORM\\MyORM.csproj": {
               "projectPath": "C:\\Users\\adk03\\Downloads\\HttpServer\\MyORM\\MyORM.csproj"

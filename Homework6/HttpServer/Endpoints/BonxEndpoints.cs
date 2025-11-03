@@ -3,7 +3,7 @@
 namespace HttpServer.Endpoints;
 
 [Endpoint]
-public class BonxController
+public class BonxEndpoing
 {
     [HttpGet("/bonx")]
     public string LoginPage()

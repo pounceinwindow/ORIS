@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "604YP1ysGAo=",
+  "dgSpecHash": "192rYXr65j8=",
   "success": true,
   "projectFilePath": "C:\\Users\\adk03\\Downloads\\HttpServer\\MyORM.UnitTests\\MyORM.UnitTests.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\adk03\\.nuget\\packages\\mstest.testframework\\3.6.4\\mstest.testframework.3.6.4.nupkg.sha512",
     "C:\\Users\\adk03\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\adk03\\.nuget\\packages\\npgsql\\9.0.4\\npgsql.9.0.4.nupkg.sha512",
+    "C:\\Users\\adk03\\.nuget\\packages\\nunit\\4.4.0\\nunit.4.4.0.nupkg.sha512",
     "C:\\Users\\adk03\\.nuget\\packages\\nunit3testadapter\\6.0.0-beta.1\\nunit3testadapter.6.0.0-beta.1.nupkg.sha512",
     "C:\\Users\\adk03\\.nuget\\packages\\system.collections.immutable\\8.0.0\\system.collections.immutable.8.0.0.nupkg.sha512",
     "C:\\Users\\adk03\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
