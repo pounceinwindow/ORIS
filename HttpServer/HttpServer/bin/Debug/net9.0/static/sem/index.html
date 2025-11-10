@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Tickets, activities and visits in Tours — static clone</title>
+    <meta content="Tours listing page" name="description"/>
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link href="/styles.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div data-include="header"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <img alt="" aria-hidden="true" class="hero-bg" src="img/1.avif">
+    <div class="hero-inner">
+        <h1>Tickets, activities and visits in Tours</h1>
+    </div>
+</section>
+
+<main class="page" role="main">
+    <div class="layout">
+
+        <!-- FILTERS -->
+        <aside aria-label="Filters" class="aside">
+            <div class="filters">
+
+                <!-- PRICE -->
+                <div class="fg collapsed" id="priceFilter">
+                    <div class="fh no-toggle" style="cursor:default; font-weight: 500;">Price (per adult)</div>
+
+                    <div aria-label="Price range" class="range2">
+                        <div aria-hidden="true" class="track"></div>
+                        <div aria-hidden="true" class="range-fill"></div>
+                        <input id="priceMin" max="466" min="22" step="1" type="range" value="22">
+                        <input id="priceMax" max="466" min="22" step="1" type="range" value="466">
+                    </div>
+
+                    <div aria-hidden="true" class="mm">
+                        <div class="box"><span>Min:</span><strong id="minOut">$22</strong></div>
+                        <div class="box"><span>Max:</span><strong id="maxOut">$466</strong></div>
+                    </div>
+                </div>
+
+                <!-- TICKETS -->
+                <div class="fg collapsed">
+                    <button class="fh" style="font-weight: 500;" type="button">Tickets option</button>
+                    <div class="checks">
+                        <label class="check"><input type="checkbox"/> Instant confirmation</label>
+                        <label class="check"><input type="checkbox"/> Free cancellation</label>
+                        <label class="check"><input type="checkbox"/> Guided tour</label>
+                        <label class="check"><input type="checkbox"/> Skip the line</label>
+                        <label class="check"><input type="checkbox"/> Entrance Fees Included</label>
+                        <label class="check"><input type="checkbox"/> Local touch</label>
+                        <label class="check"><input type="checkbox"/> Smaller Group Size</label>
+                        <label class="check"><input type="checkbox"/> Subject expert guide</label>
+                        <label class="check"><input type="checkbox"/> Private Tour</label>
+                        <label class="check"><input type="checkbox"/> Meal Included</label>
+                    </div>
+                </div>
+
+                <!-- CATEGORIES -->
+                <div class="fg collapsed">
+                    <button class="fh" style="font-weight: 500;" type="button">Categories</button>
+                    <div class="checks">
+                        <label class="check"><input type="checkbox"> Attractions &amp; guided tours</label>
+                        <label class="check"><input type="checkbox"> Excursions & day trips</label>
+                        <label class="check"><input type="checkbox"> Experiences for locals</label>
+                        <label class="check"><input type="checkbox"> Activities</label>
+
+                        <label class="check"><input type="checkbox"> Tickets &amp; events</label>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- RESULTS -->
+        <section aria-label="Results" class="results">
+
+            <!-- tabs -->
+            <div aria-label="Categories" class="tabs" role="tablist">
+          <span aria-selected="true" class="tab" role="tab"><svg class="tc-svg-icon"
+                                                                 data-test-id="search-component-category-button-new-attractions-guided-tours-icon"
+                                                                 viewBox="0 0 24 24"
+                                                                 xmlns="http://www.w3.org/2000/svg"><path
+                  d="M12 13.74a5.377 5.377 0 01-5.37-5.37A5.375 5.375 0 0112 3a5.377 5.377 0 015.372 5.37c0 2.96-2.41 5.37-5.371 5.37zm0-9.767A4.403 4.403 0 007.603 8.37 4.403 4.403 0 0012 12.768a4.403 4.403 0 004.398-4.397A4.403 4.403 0 0012 3.973z"></path><path
+                  d="M12 11.298A2.932 2.932 0 019.072 8.37a.486.486 0 01.971 0A1.96 1.96 0 0012 10.326a1.958 1.958 0 001.956-1.956.486.486 0 01.972 0 2.932 2.932 0 01-2.929 2.928H12zM1.487 19.875a.485.485 0 01-.31-.861A16.97 16.97 0 0112 15.132c2.378 0 4.679.48 6.838 1.428 1.43.628 2.77 1.453 3.985 2.453a.486.486 0 11-.618.75 16.038 16.038 0 00-3.757-2.313 16.083 16.083 0 00-16.652 2.313.485.485 0 01-.31.111z"></path><path
+                  d="M16.983 21.094h-2.615a1.619 1.619 0 01-1.617-1.617V19.3c0-.892.725-1.617 1.617-1.617h2.615c.892 0 1.617.726 1.617 1.617v.177c0 .892-.726 1.617-1.617 1.617zm-2.615-2.44a.646.646 0 00-.645.646v.176c0 .355.29.645.645.645h2.615c.356 0 .645-.29.645-.645V19.3a.646.646 0 00-.645-.645h-2.615z"></path></svg>
+            Attractions &amp; guided tours
+          </span>
+                <span class="tab" role="tab"><svg class="tc-svg-icon"
+                                                  data-test-id="search-component-category-button-new-excursions-day-trips-icon"
+                                                  viewBox="0 0 24 24"
+                                                  xmlns="http://www.w3.org/2000/svg"><path
+                        d="M14.842 16.754H4.797c-.712 0-1.292-.637-1.292-1.42V4.203a.574.574 0 111.147 0v11.13c0 .166.095.272.144.272h10.046c.049 0 .144-.107.144-.273V13.64l.02-9.437c.002-.317.259-.573.574-.573h.002c.317.001.573.259.572.575l-.02 9.436v1.692c0 .783-.58 1.421-1.293 1.421h.001z"></path><path
+                        d="M7.048 15.898h-.936a.574.574 0 00-.574.573v1.592c0 .317.257.574.574.574h.936a.574.574 0 00.574-.574v-1.592a.574.574 0 00-.574-.573zM13.676 15.898h-.936a.574.574 0 00-.574.573v1.592c0 .317.257.574.574.574h.936a.574.574 0 00.574-.574v-1.592a.574.574 0 00-.574-.573z"></path><path
+                        d="M18.31 19.167H1.69a.574.574 0 010-1.148H18.31a.574.574 0 010 1.148zM18.31 6.975a.574.574 0 01-.574-.574V4.778H2.264v1.436a.574.574 0 11-1.147 0v-2.01a.574.574 0 01.574-.573h16.618a.574.574 0 01.573.573v2.197a.574.574 0 01-.573.574zM15.58 11.64H4.218a.573.573 0 110-1.147h11.364a.574.574 0 110 1.147h-.001zM6.58 15.129c-.83 0-1.506-.675-1.506-1.505 0-.83.676-1.507 1.506-1.507s1.506.676 1.506 1.507c0 .83-.675 1.505-1.506 1.505zm0-1.864a.358.358 0 10.001.717.358.358 0 00-.001-.717zm6.628 1.864c-.83 0-1.506-.675-1.506-1.505 0-.83.675-1.507 1.506-1.507a1.507 1.507 0 010 3.012zm0-1.864a.358.358 0 10.001.717.358.358 0 00-.001-.717z"></path><path
+                        d="M15.581 4.777a.574.574 0 01-.573-.574c0-1.05-2.127-2.222-5.178-2.222-3.05 0-5.177 1.172-5.177 2.222a.574.574 0 01-1.147 0c0-.978.712-1.863 2.007-2.493C6.676 1.144 8.21.833 9.831.833c1.622 0 3.155.311 4.318.877 1.294.63 2.007 1.515 2.007 2.493a.574.574 0 01-.573.574h-.002z"></path></svg>
+            Excursions &amp; day trips
+          </span>
+                <span class="tab" role="tab"><svg class="tc-svg-icon"
+                                                  data-test-id="search-component-category-button-new-activities-icon"
+                                                  viewBox="0 0 24 24"
+                                                  xmlns="http://www.w3.org/2000/svg"><path
+                        d="M11.37 12.49c1.86 0 3.37-1.51 3.37-3.37s-1.51-3.37-3.37-3.37S8 7.26 8 9.12s1.51 3.37 3.37 3.37zm0-5.78c1.33 0 2.41 1.08 2.41 2.42 0 1.34-1.08 2.41-2.41 2.41s-2.41-1.08-2.41-2.41a2.42 2.42 0 012.41-2.42zm6.5 8.6c-.41-.32-1.45-1.1-2.37-1.51-1.3-.57-2.69-.86-4.13-.86-2.27 0-4.64.85-6.52 2.35a.48.48 0 00-.11.62 7.79 7.79 0 002.76 2.74c1.17.68 2.51 1.04 3.87 1.04 1.36 0 2.69-.36 3.86-1.03a7.654 7.654 0 002.76-2.72c.06-.1.08-.22.06-.33a.453.453 0 00-.18-.29v-.01zm-3.12 2.51c-1.02.59-2.18.9-3.38.9-1.2 0-2.37-.32-3.39-.91a6.89 6.89 0 01-2.19-2.04c1.65-1.2 3.66-1.88 5.58-1.88 1.3 0 2.56.26 3.74.78.49.21 1.15.62 1.82 1.12-.57.83-1.32 1.52-2.19 2.02l.01.01zm5.39-6.18c-.18-.14-.66-.49-1.09-.67-.6-.26-1.23-.39-1.89-.39-1.04 0-2.13.38-2.99 1.05-.21.16-.25.46-.08.67.16.21.46.25.67.08.69-.54 1.57-.85 2.4-.85.53 0 1.04.1 1.51.31.23.1.56.3.88.55a.464.464 0 00.5.05.478.478 0 00.08-.81l.01.01zm-2.98-1.13c1.19 0 2.16-.97 2.16-2.16 0-1.19-.97-2.16-2.16-2.16-1.19 0-2.16.97-2.16 2.16 0 1.19.97 2.16 2.16 2.16zm0-3.38c.67 0 1.21.54 1.21 1.21 0 .67-.54 1.21-1.21 1.21-.67 0-1.21-.54-1.21-1.21 0-.67.54-1.21 1.21-1.21z"></path></svg>
+            Activities
+          </span>
+                <span class="tab" role="tab"><svg class="tc-svg-icon"
+                                                  data-test-id="search-component-category-button-experiences-for-locals-icon"
+                                                  viewBox="0 0 24 24"
+                                                  xmlns="http://www.w3.org/2000/svg"><path
+                        d="M16.87 16.31c-.41-.32-1.45-1.1-2.37-1.51-1.3-.57-2.69-.86-4.13-.86-2.27 0-4.64.85-6.52 2.35a.48.48 0 00-.11.62 7.79 7.79 0 002.76 2.74c1.17.68 2.51 1.04 3.87 1.04 1.36 0 2.69-.36 3.86-1.03a7.654 7.654 0 002.76-2.72c.06-.1.08-.22.06-.33a.453.453 0 00-.18-.29v-.01zm-3.12 2.51c-1.02.59-2.18.9-3.38.9-1.2 0-2.37-.32-3.39-.91a6.89 6.89 0 01-2.19-2.04c1.65-1.2 3.66-1.88 5.58-1.88 1.3 0 2.56.26 3.74.78.49.21 1.15.62 1.82 1.12-.57.83-1.32 1.52-2.19 2.02l.01.01zm-3.38-5.33c1.86 0 3.37-1.51 3.37-3.37s-1.51-3.37-3.37-3.37S7 8.26 7 10.12s1.51 3.37 3.37 3.37zm0-5.78c1.33 0 2.41 1.08 2.41 2.42 0 1.34-1.08 2.41-2.41 2.41s-2.41-1.08-2.41-2.41a2.42 2.42 0 012.41-2.42zm7.06-3.12c-1.52 0-2.75 1.23-2.75 2.75 0 .04.01.3.03.43.19 1.27 1.17 2.67 2.48 3.56.07.05.15.07.24.07s.17-.03.24-.07c1.22-.83 2.15-2.1 2.43-3.31.06-.22.08-.45.08-.68 0-1.52-1.23-2.75-2.75-2.75zm1.9 2.75c0 .16-.02.32-.06.49-.17.73-.74 1.8-1.84 2.63-1.2-.91-1.76-2.08-1.88-2.82-.01-.07-.02-.27-.02-.31 0-1.05.86-1.9 1.9-1.9s1.9.85 1.9 1.9v.01z"></path><path
+                        d="M17.42 5.94a1.23 1.23 0 100 2.46 1.23 1.23 0 100-2.46zm.49 1.23c0 .26-.22.48-.48.48s-.48-.22-.48-.48.22-.48.48-.48.48.22.48.48z"></path></svg>
+            Experiences for locals
+          </span>
+                <span class="tab" role="tab"><svg class="tc-svg-icon"
+                                                  data-test-id="search-component-category-button-new-tickets-events-icon"
+                                                  viewBox="0 0 24 24"
+                                                  xmlns="http://www.w3.org/2000/svg"><path
+                        d="M10.02 23a.586.586 0 01-.417-.172L7.996 21.22a.59.59 0 010-.832c.318-.318.493-.74.493-1.191 0-.45-.175-.874-.493-1.192a1.687 1.687 0 00-2.383 0 .587.587 0 01-.832 0l-1.608-1.607a.588.588 0 010-.832l10.45-10.45a.587.587 0 01.831 0l1.608 1.608a.59.59 0 010 .832 1.673 1.673 0 00-.494 1.192c0 .45.175.873.494 1.191.318.319.741.494 1.191.494.451 0 .874-.175 1.192-.494a.59.59 0 01.832 0l1.607 1.608a.59.59 0 010 .832L10.435 22.828a.586.586 0 01-.416.172zM9.2 20.762l.818.818 9.618-9.617-.818-.818c-.461.302-1 .465-1.566.465a2.842 2.842 0 01-2.023-.838 2.842 2.842 0 01-.838-2.024c0-.564.163-1.103.465-1.565l-.818-.818-9.617 9.617.818.819a2.867 2.867 0 013.588.373c.54.54.838 1.26.838 2.023 0 .565-.162 1.104-.465 1.565z"></path><path
+                        d="M8.621 15.171A.586.586 0 018.205 15l-.804-.804a.586.586 0 01.19-.96.587.587 0 01.642.128l.804.804a.586.586 0 010 .832.587.587 0 01-.416.172zm1.8 1.801a.586.586 0 01-.415-.172l-.804-.804a.587.587 0 11.832-.832l.804.804a.587.587 0 01-.416 1.004zm1.8 1.8a.586.586 0 01-.415-.172l-.804-.805a.586.586 0 01.19-.959.59.59 0 01.641.128l.804.804a.585.585 0 010 .832.587.587 0 01-.415.172z"></path><path
+                        d="M3.591 16.571a.59.59 0 01-.576-.722L6.357 1.456a.587.587 0 01.706-.44l2.214.514c.316.074.514.39.44.706a1.687 1.687 0 001.26 2.023A1.687 1.687 0 0013 2.998a.588.588 0 01.706-.44l2.214.514c.316.073.514.39.44.706l-.685 2.952a.588.588 0 01-.989.283l-.648-.649-9.997 9.998a.59.59 0 01-.45.21zM7.37 2.294L4.626 14.113l8.997-8.996a.587.587 0 01.831 0l.315.314.313-1.347-1.128-.261a2.871 2.871 0 01-3.242 1.58 2.867 2.867 0 01-2.215-2.847L7.37 2.294z"></path></svg>
+            Tickets and events
+          </span>
+            </div>
+
+            <!-- head -->
+            <div class="result-head">
+                <div><strong>14</strong> Experiences</div>
+                <div aria-label="Sort options" class="sort" role="group">
+                    Sort by:<strong>&nbsp;Popularity</strong> ▾
+                </div>
+            </div>
+
+            <!-- cards -->
+            <div class="grid">
+
+                <!-- 1 -->
+                <article class="card" data-slug="entrance-ticket-to-chambord-castle">
+                    <a aria-label="Entrance ticket to Chambord Castle" class="stretched"
+                       href="/product.html?slug=entrance-ticket-to-chambord-castle"></a>
+                    <div class="media">
+                        <img alt="Chambord" loading="lazy"
+                             src="https://images.musement.com/cover/0072/36/chateau-de-chambord-1-jpg_header-7135742.jpeg?w=720&q=60">
+                        <span class="pill">ATTRACTIONS &amp; GUIDED TOURS</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Entrance ticket to Chambord Castle</div>
+                        <p class="desc">Skip-the-line e-ticket to visit Château de Chambord, the biggest castle of Loire
+                            Valley.</p>
+                        <div class="meta">⭐ 4.7/5 (110) · 📱 Mobile ticket</div>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En, Fr, Es, De</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$22.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 2 -->
+                <article class="card" data-slug="loire-valley-day-from-tours-with-azay-le-rideau-villandry">
+                    <a aria-label="Loire Valley Day from Tours with Azay-le-Rideau &amp; Villandry"
+                       class="stretched"
+                       href="/product.html?slug=loire-valley-day-from-tours-with-azay-le-rideau-villandry"></a>
+                    <div class="media">
+                        <img alt="Loire day" loading="lazy"
+                             src="https://images.musement.com/cover/0162/95/thumb_16194779_cover_header.jpg?w=720&q=60">
+                        <span class="pill">ATTRACTIONS &amp; GUIDED TOURS</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Loire Valley Day from Tours with Azay-le-Rideau &amp; Villandry</div>
+                        <p class="desc">Explore the Loire Valley from Tours and see some of the best châteaux of the
+                            area.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$212.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 3 -->
+                <article class="card" data-slug="e-bike-tour-to-chambord-from-villesavin">
+                    <a aria-label="E-Bike Tour to Chambord from Villesavin" class="stretched"
+                       href="/product.html?slug=e-bike-tour-to-chambord-from-villesavin"></a>
+                    <div class="media">
+                        <img alt="E-bike" loading="lazy"
+                             src="https://images.musement.com/cover/0163/15/thumb_16214539_cover_header.jpg?w=720&q=60">
+                        <span class="pill">ATTRACTIONS &amp; GUIDED TOURS</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">E-Bike Tour to Chambord from Villesavin</div>
+                        <p class="desc">Ride an e-bike through the Loire Valley and admire top castles.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$200.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 4 -->
+                <article class="card" data-slug="retro-sidecar-tour-by-night">
+                    <a aria-label="Retro sidecar tour by night" class="stretched"
+                       href="/product.html?slug=retro-sidecar-tour-by-night"></a>
+                    <div class="media">
+                        <img alt="Sidecar night" loading="lazy"
+                             src="https://images.musement.com/cover/0142/79/thumb_14178772_cover_header.jpeg?w=720&q=60">
+                        <span class="pill">ACTIVITIES</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Retro sidecar tour by night</div>
+                        <p class="desc">Discover Tours by night on board a vintage sidecar with your local guide.</p>
+                        <div class="meta">⭐ 4.6/5 · ⏱ 1h30</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$49.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 5 -->
+                <article class="card" data-slug="half-day-sidecar-tour-of-the-loire-valley-from-tours">
+                    <a aria-label="Half-day sidecar tour of the Loire Valley from Tours" class="stretched"
+                       href="/product.html?slug=half-day-sidecar-tour-of-the-loire-valley-from-tours"></a>
+                    <div class="media">
+                        <img alt="Half-day sidecar" loading="lazy"
+                             src="https://images.musement.com/cover/0163/14/thumb_16213747_cover_header.jpg?w=720&q=60">
+                        <span class="pill">ACTIVITIES</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Half-day sidecar tour of the Loire Valley from Tours</div>
+                        <p class="desc">See the best of the Loire in half a day on a vintage sidecar.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En, Fr</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$473.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 6 -->
+                <article class="card" data-slug="chenonceau-and-chambord-tour-with-wine-tasting">
+                    <a aria-label="Chenonceau and Chambord Tour with Wine-Tasting" class="stretched"
+                       href="/product.html?slug=chenonceau-and-chambord-tour-with-wine-tasting"></a>
+                    <div class="media">
+                        <img alt="Chenonceau + Chambord" loading="lazy"
+                             src="https://images.musement.com/cover/0001/74/thumb_73756_cover_header.jpeg?w=720&q=60">
+                        <span class="pill">ATTRACTIONS &amp; GUIDED TOURS</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Chenonceau and Chambord Tour with Wine-Tasting</div>
+                        <p class="desc">Expert guide + two iconic castles + tasting in a typical cave.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$247.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 7 -->
+                <article class="card" data-slug="guided-visit-villandry-azay-le-rideau-chateaux-from-tours">
+                    <a aria-label="Guided visit Villandry &amp; Azay-le-Rideau châteaux from Tours"
+                       class="stretched"
+                       href="/product.html?slug=guided-visit-villandry-azay-le-rideau-chateaux-from-tours"></a>
+                    <div class="media">
+                        <img alt="Guided Villandry &amp; Azay" loading="lazy"
+                             src="https://images.musement.com/cover/0163/02/thumb_16201125_cover_header.jpg?lossless=false&auto=format&fit=crop&h=145&w=292.4624938964844">
+                        <span class="pill">ATTRACTIONS &amp; GUIDED TOURS</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Guided visit Villandry &amp; Azay-le-Rideau châteaux from Tours</div>
+                        <p class="desc">Transportation and picnic lunch included.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$117.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 8 -->
+                <article class="card" data-slug="a-day-in-chambord-and-chenonceau-with-private-lunch">
+                    <a aria-label="A day in Chambord and Chenonceau with private lunch" class="stretched"
+                       href="/product.html?slug=a-day-in-chambord-and-chenonceau-with-private-lunch"></a>
+                    <div class="media">
+                        <img alt="Day in Chambord and Chenonceau with private lunch" loading="lazy"
+                             src="https://images.musement.com/cover/0162/95/thumb_16194788_cover_header.jpg?w=720&q=60">
+                        <span class="pill">ATTRACTIONS &amp; GUIDED TOURS</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">A day in Chambord and Chenonceau with private lunch</div>
+                        <p class="desc">Full-day tour with a refined lunch in a private château room.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$254.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 9 -->
+                <article class="card" data-slug="great-escape-sidecar-tour-from-tours">
+                    <a aria-label="Great Escape sidecar tour from Tours" class="stretched"
+                       href="/product.html?slug=great-escape-sidecar-tour-from-tours"></a>
+                    <div class="media">
+                        <img alt="Great Escape sidecar" loading="lazy"
+                             src="https://images.musement.com/cover/0163/14/thumb_16213737_cover_header.jpg?lossless=false&auto=format&fit=crop&h=145&w=292.4624938964844">
+                        <span class="pill">ACTIVITIES</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Great Escape sidecar tour from Tours</div>
+                        <p class="desc">The heart of the Loire Valley on a vintage sidecar.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En, Fr</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$237.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 10 -->
+                <article class="card" data-slug="retro-classic-sidecar-tour-from-tours">
+                    <a aria-label="Retro Classic sidecar tour from Tours" class="stretched"
+                       href="/product.html?slug=retro-classic-sidecar-tour-from-tours"></a>
+                    <div class="media">
+                        <img alt="Retro Classic sidecar" loading="lazy"
+                             src="https://images.musement.com/cover/0142/79/thumb_14178770_cover_header.jpeg?w=720&q=60">
+                        <span class="pill">ACTIVITIES</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Retro Classic sidecar tour from Tours</div>
+                        <p class="desc">Unusual places with your local sidecar-guide.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$118.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 11 -->
+                <article class="card" data-slug="full-day-tour-of-chambord-and-chenonceau-from-tours">
+                    <a aria-label="Full Day Tour of Chambord and Chenonceau from Tours" class="stretched"
+                       href="/product.html?slug=full-day-tour-of-chambord-and-chenonceau-from-tours"></a>
+                    <div class="media">
+                        <img alt="Full day Chambord &amp; Chenonceau" loading="lazy"
+                             src="https://images.musement.com/cover/0162/95/thumb_16194790_cover_header.jpg?w=720&q=60">
+                        <span class="pill">ATTRACTIONS &amp; GUIDED TOURS</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Full Day Tour of Chambord and Chenonceau from Tours</div>
+                        <p class="desc">Two of the best castles of the Loire Valley departing from Tours.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$207.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 12 -->
+                <article class="card" data-slug="entrance-ticket-for-zooparc-de-beauval">
+                    <a aria-label="Entrance ticket for ZooParc de Beauval" class="stretched"
+                       href="/product.html?slug=entrance-ticket-for-zooparc-de-beauval"></a>
+                    <div class="media">
+                        <img alt="ZooParc de Beauval" loading="lazy"
+                             src="https://images.musement.com/cover/0165/48/thumb_16447200_cover_header.jpg?lossless=false&auto=format&fit=crop&h=145&w=292.4624938964844">
+                        <span class="pill">TICKETS &amp; EVENTS</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Entrance ticket for ZooParc de Beauval</div>
+                        <p class="desc">One of the most beautiful zoological parks in the world located in
+                            Loir-et-Cher.</p>
+                        <div class="meta">⏱ 1–2 days · 📱 Instant confirmation</div>
+                        <div class="meta"><span class="ok">Skip the line</span></div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$49.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 13 -->
+                <article class="card" data-slug="afternoon-wine-tour-to-vouvray">
+                    <a aria-label="Afternoon wine tour to Vouvray" class="stretched"
+                       href="/product.html?slug=afternoon-wine-tour-to-vouvray"></a>
+                    <div class="media">
+                        <img alt="Afternoon wine" loading="lazy"
+                             src="https://images.musement.com/cover/0001/65/thumb_64023_cover_header.png?lossless=false&auto=format&fit=crop&h=145&w=292.4624938964844">
+                        <span class="pill">ATTRACTIONS &amp; GUIDED TOURS</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">Afternoon wine tour to Vouvray</div>
+                        <p class="desc">Become a wine-expert in 4.5 hours and discover the beautiful wines area of
+                            Vouvray.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$105.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+                <!-- 14 -->
+                <article class="card" data-slug="e-bike-tour-to-chambord-from-tours">
+                    <a aria-label="E-bike Tour to Chambord from Tours" class="stretched"
+                       href="/product.html?slug=e-bike-tour-to-chambord-from-tours"></a>
+                    <div class="media">
+                        <img alt="E-bike Chambord from Tours" loading="lazy"
+                             src="https://images.musement.com/cover/0163/15/thumb_16214542_cover_header.jpg?w=720&q=60">
+                        <span class="pill">ATTRACTIONS &amp; GUIDED TOURS</span>
+                    </div>
+                    <div class="body">
+                        <div class="title">E-bike Tour to Chambord from Tours</div>
+                        <p class="desc">Ride effortlessly and discover Chambord and its forest.</p>
+                        <div class="meta"><span class="ok">Free cancellation</span> Available in: En</div>
+                    </div>
+                    <div class="foot">
+                        <div class="from">from: <span class="price">$200.00</span></div>
+                        <span>Details</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- TEXT SECTIONS -->
+    <section class="section intro">
+        <h2 style="font-size:22px;margin:0 0 12px 0">Experiences in Tours</h2>
+        <div class="columns">
+            <div class="col">
+                <h4>Monument visits</h4><a href="#"><span>6 EXPERIENCES</span> ›</a>
+                <h4 style="margin-top:16px">Hop-on hop-off</h4><a href="#"><span>4 EXPERIENCES</span> ›</a>
+                <h4 style="margin-top:16px">Drinks &amp; tastings</h4><a href="#"><span>1 EXPERIENCES</span> ›</a>
+            </div>
+            <div class="col">
+                <h4>Folklore</h4><a href="#"><span>6 EXPERIENCES</span> ›</a>
+                <h4 style="margin-top:16px">Food &amp; dining</h4><a href="#"><span>2 EXPERIENCES</span> ›</a>
+            </div>
+            <div class="col">
+                <h4>Off-road</h4><a href="#"><span>4 EXPERIENCES</span> ›</a>
+                <h4 style="margin-top:16px">Must-sees</h4><a href="#"><span>2 EXPERIENCES</span> ›</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section intro">
+        <h2 style="font-size:22px;margin:0 0 8px 0">Introducing Tours</h2>
+        <p>Tours stands on the lower reaches of the River Loire, between Orléans and the Atlantic coast. The surrounding
+            district, the traditional province of Touraine, is known for its wines, for the alleged perfection of its
+            local spoken French, and for the Battle of Tours (732)…</p>
+        <p>Tours is famous also for its original medieval district, called <em>le Vieux Tours</em> with preserved
+            half-timbered buildings and <em>la Place Plumereau</em>, a square with busy pubs and restaurants, whose
+            open-air tables fill the centre of the square…</p>
+        <p>Near the cathedral of Tours, in the garden of the ancient Palais des Archevêques (now <em>Musée des
+            Beaux-Arts</em>), is a huge cedar tree planted by Napoleon. Funny fact…</p>
+    </section>
+</main>
+
+<div data-include="footer"></div>
+
+<script defer src="scripts.js"></script>
+<script defer src="assets.js"></script>
+
+</body>
+</html>
