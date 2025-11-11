@@ -1139,10 +1139,8 @@ C:\Users\pounce\Downloads\HttpServer\HttpServer\obj\Debug\net9.0\refint\HttpServ
 C:\Users\pounce\Downloads\HttpServer\HttpServer\obj\Debug\net9.0\HttpServer.pdb
 C:\Users\pounce\Downloads\HttpServer\HttpServer\obj\Debug\net9.0\HttpServer.genruntimeconfig.cache
 C:\Users\pounce\Downloads\HttpServer\HttpServer\obj\Debug\net9.0\ref\HttpServer.dll
-C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\404.html
 C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\footer.html
 C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\header.html
-C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\img\1.avif
 C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\img\city_generic.svg
 C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\img\facebook.svg
 C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\img\instagram.svg
@@ -1154,3 +1152,6 @@ C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\prod
 C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\scripts.js
 C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\styles.css
 C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\product.css
+C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\404.html
+C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\img\1.jpg
+C:\Users\pounce\Downloads\HttpServer\HttpServer\bin\Debug\net9.0\static\sem\product.js

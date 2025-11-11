@@ -39,15 +39,13 @@ public class ExperienceDetails
     public string Meeting { get; set; } = "";
     public string CancelPolicy { get; set; } = "";
     public DateTime? ValidUntil { get; set; }
-
-    // JSON поля для хранения списков
+    public string DescriptionHtml { get; set; } = "";
     public string ChipsJson { get; set; } = "[]";
     public string LoveJson { get; set; } = "[]";
     public string IncludedJson { get; set; } = "[]";
     public string RememberJson { get; set; } = "[]";
     public string MoreJson { get; set; } = "[]";
 
-    // Вычисляемые свойства для удобства
     public List<string> Chips => JsonSerializer.Deserialize<List<string>>(ChipsJson ?? "[]") ?? new List<string>();
     public List<string> Love => JsonSerializer.Deserialize<List<string>>(LoveJson ?? "[]") ?? new List<string>();
 
@@ -79,7 +77,6 @@ public class Review
     public DateTime CreatedAt { get; set; }
 }
 
-// View Models
 public class IndexViewModel
 {
     public string City { get; set; } = "";

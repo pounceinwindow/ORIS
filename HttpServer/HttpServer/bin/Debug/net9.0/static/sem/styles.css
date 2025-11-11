@@ -1086,3 +1086,62 @@ footer {
     }
 }
 
+.city-header {
+    padding: 40px 0 24px;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 24px;
+}
+
+.city-header-inner {
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.city-header-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.city-header-icon {
+    width: 124px;
+    height: 124px;
+    display: block;
+}
+
+.city-header-title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.city-header-link {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    font-weight: 600;
+    color: #111827;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.city-header-link:hover {
+    background: #f9fafb;
+}
+
+@media (max-width: 640px) {
+    .city-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .city-header-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+

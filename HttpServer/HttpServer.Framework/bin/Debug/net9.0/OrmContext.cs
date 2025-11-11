@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Text;
 using Npgsql;
 
 namespace MyORM;
@@ -114,7 +115,7 @@ public class OrmContext
             case BinaryExpression b:
                 return $"({BuildSqlQuery(b.Left)} {GetSqlOperator(b.NodeType)} {BuildSqlQuery(b.Right)})";
             case MemberExpression m when m.Expression is ParameterExpression:
-                return m.Member.Name.ToLower();
+                return ToSnakeCase(m.Member.Name);
             case MemberExpression m:
                 return FormatConstant(GetValue(m));
             case ConstantExpression c:
@@ -162,6 +163,30 @@ public class OrmContext
         };
     }
 
+    private static string ToSnakeCase(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+            return name;
+
+        var sb = new StringBuilder(name.Length + 5);
+        for (var i = 0; i < name.Length; i++)
+        {
+            var c = name[i];
+            if (char.IsUpper(c))
+            {
+                if (i > 0)
+                    sb.Append('_');
+                sb.Append(char.ToLowerInvariant(c));
+            }
+            else
+            {
+                sb.Append(c);
+            }
+        }
+
+        return sb.ToString();
+    }
+
     private static string FormatConstant(object value)
     {
         return value switch
@@ -188,7 +213,9 @@ public class OrmContext
             cols[r.GetName(i)] = i;
         foreach (var p in props)
         {
-            if (!cols.TryGetValue(p.Name, out var idx) && !cols.TryGetValue(p.Name.ToLower(), out idx))
+            if (!cols.TryGetValue(p.Name, out var idx) &&
+                !cols.TryGetValue(p.Name.ToLower(), out idx) &&
+                !cols.TryGetValue(ToSnakeCase(p.Name), out idx))
                 continue;
             if (r.IsDBNull(idx))
                 continue;

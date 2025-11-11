@@ -2,5 +2,5 @@
   "StaticDirectoryPath": "static",
   "Domain": "http://+",
   "Port": "1234",
-  "ConnectionString": "Host=db;Port=5432;Database=oris;Username=developer;Password=developer;Pooling=true"
+  "ConnectionString": "Host=db;Port=5432;Database=oris;Username=developer;Password=developer"
 }

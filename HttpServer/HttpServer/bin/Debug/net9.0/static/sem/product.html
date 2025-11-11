@@ -3,30 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>${root.Details.Title}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Твой CSS -->
-    <link href="styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="/sem/css/product.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="/styles.css" rel="stylesheet">
+    <link href="/product.css" rel="stylesheet">
 </head>
 <body class="product-page">
 
-<header class="site-header">
-    <div class="brand">Loire Valley</div>
-
-    <div class="search">
-        <input type="text" placeholder="Search experiences in Loire Valley">
-    </div>
-
-    <nav class="top-links">
-        <a href="/tours">Tours</a>
-        <a href="/search">Search</a>
-        <a href="/about">About</a>
-        <a href="/help">Help</a>
-    </nav>
-</header>
+<!-- HEADER будет подгружен твоим скриптом -->
+<div data-include="header"></div>
 
 <div class="container">
-
     <!-- BREADCRUMBS -->
     <nav class="breadcrumbs">
         <a href="/">Home</a>
@@ -37,16 +23,15 @@
         <span class="sep">/</span>
         <span>${root.Details.Category}</span>
     </nav>
-
 </div>
 
 <!-- HERO -->
 <div class="hero">
     <div class="hero-frame">
         $if(!string.IsNullOrEmpty(root.Details.Hero))
-        <img src="${root.Details.Hero}" alt="${root.Details.Title}">
+        <img alt="${root.Details.Title}" src="${root.Details.Hero}">
         $else
-        <img src="/sem/img/hero-placeholder.jpg" alt="${root.Details.Title}">
+        <img alt="${root.Details.Title}" src="/sem/img/hero-placeholder.jpg">
         $endif
         <button class="photos-btn">View all photos</button>
     </div>
@@ -58,12 +43,11 @@
         <!-- LEFT COLUMN -->
         <main>
 
-            <!-- Category pill + title -->
             <div class="category-pill">${root.Details.Category}</div>
 
             <h1 class="title">${root.Details.Title}</h1>
 
-            <!-- Rating block -->
+            <!-- Rating -->
             <div class="rating">
                 <div class="badge">
                     ${root.Details.Rating}
@@ -72,7 +56,7 @@
                 <a href="#reviews">Based on ${root.Details.Reviews} reviews</a>
             </div>
 
-            <!-- Meta info -->
+            <!-- Meta -->
             <div class="meta">
                 <div class="meta-item">
                     <span>⏱</span>
@@ -117,7 +101,7 @@
                 </ul>
             </section>
 
-            <!-- What to expect / description -->
+            <!-- What to expect -->
             $if(!string.IsNullOrEmpty(root.Details.DescriptionHtml))
             <section class="expect">
                 <h2>What to expect</h2>
@@ -138,7 +122,7 @@
                 </ul>
             </section>
 
-            <!-- What to remember -->
+            <!-- Remember -->
             <section>
                 <h2>What to remember</h2>
                 <ul class="list">
@@ -148,7 +132,7 @@
                 </ul>
             </section>
 
-            <!-- Meeting point & map -->
+            <!-- Meeting point -->
             $if(!string.IsNullOrEmpty(root.Details.Meeting) || !string.IsNullOrEmpty(root.Details.Address))
             <section>
                 <h2>Meeting point</h2>
@@ -160,8 +144,7 @@
                 $endif
 
                 <div class="map">
-                    <!-- Можно заменить на реальный map или iframe -->
-                    <img src="/sem/img/map-placeholder.png" alt="Meeting point map">
+                    <img alt="Meeting point map" src="/sem/img/map-placeholder.png">
                 </div>
             </section>
             $endif
@@ -183,7 +166,6 @@
                         <p class="muted">
                             Based on <b>${root.Details.Reviews}</b> verified reviews
                         </p>
-                        <!-- Пример статичных полосок, можно захардкодить/посчитать -->
                         <div>
                             <div>Excellent</div>
                             <div class="bar"><span style="width: 86%"></span></div>
@@ -217,9 +199,8 @@
 
         </main>
 
-        <!-- RIGHT COLUMN / BOOKING CARD -->
+        <!-- RIGHT COLUMN -->
         <aside class="book-card">
-
             <h3>Book your ticket</h3>
             <div class="best">
                 <span>★ Best choice</span>
@@ -245,9 +226,9 @@
                 <div class="book-row">
                     <div class="muted">Select quantity</div>
                     <div class="qty">
-                        <button type="button" id="minus">-</button>
+                        <button id="minus" type="button">-</button>
                         <span id="qty">1</span>
-                        <button type="button" id="plus">+</button>
+                        <button id="plus" type="button">+</button>
                     </div>
                 </div>
 
@@ -260,7 +241,7 @@
             </div>
 
             <div class="cta">
-                <button type="button" id="check-btn">Check availability</button>
+                <button id="check-btn" type="button">Check availability</button>
                 <button type="button">Book now</button>
             </div>
 
@@ -278,12 +259,12 @@
         <h2>You might also like</h2>
         <div class="cards">
             $foreach(var m in root.RelatedTours)
-            <a href="/product?slug=${m.Slug}" class="card">
+            <a class="card" href="/product?slug=${m.Slug}">
                 <div class="img-wrap">
                     $if(!string.IsNullOrEmpty(m.HeroUrl))
-                    <img src="${m.HeroUrl}" alt="${m.Title}">
+                    <img alt="${m.Title}" src="${m.HeroUrl}">
                     $else
-                    <img src="/sem/img/card-placeholder.jpg" alt="${m.Title}">
+                    <img alt="${m.Title}" src="/sem/img/card-placeholder.jpg">
                     $endif
                     <div class="tag">${m.City}</div>
                 </div>
@@ -307,79 +288,13 @@
     </div>
 </section>
 
-<!-- JS: qty + total + read-more + AJAX-заготовка -->
-<script>
-    (function () {
-        // qty & total
-        var price = parseFloat("${root.Details.Price}".replace(",", "."));
-        if (isNaN(price)) price = 0;
+<!-- FOOTER будет подгружен твоим скриптом -->
+<div data-include="footer"></div>
 
-        var qtyEl = document.getElementById("qty");
-        var totalEl = document.getElementById("total-price");
-        var plus = document.getElementById("plus");
-        var minus = document.getElementById("minus");
+<!-- Твой общий JS -->
+<script defer src="/scripts.js"></script>
+<script defer src="/product.js"></script>
 
-        function updateTotal() {
-            var q = parseInt(qtyEl.textContent || "1", 10);
-            if (!q || q < 1) q = 1;
-            qtyEl.textContent = q;
-            if (totalEl) {
-                totalEl.textContent = (price * q).toFixed(2);
-            }
-        }
-
-        if (plus) plus.onclick = function () {
-            var q = parseInt(qtyEl.textContent || "1", 10) + 1;
-            qtyEl.textContent = q;
-            updateTotal();
-        };
-
-        if (minus) minus.onclick = function () {
-            var q = parseInt(qtyEl.textContent || "1", 10) - 1;
-            if (q < 1) q = 1;
-            qtyEl.textContent = q;
-            updateTotal();
-        };
-
-        updateTotal();
-
-        // Read more
-        var box = document.getElementById("desc-box");
-        var toggle = document.getElementById("read-toggle");
-        if (box && toggle) {
-            toggle.addEventListener("click", function () {
-                box.classList.toggle("faded");
-                if (box.style.maxHeight) {
-                    box.style.maxHeight = "";
-                    toggle.textContent = "Read more";
-                } else {
-                    box.style.maxHeight = "none";
-                    toggle.textContent = "Show less";
-                }
-            });
-        }
-
-        // AJAX check availability (минимум для ТЗ)
-        var checkBtn = document.getElementById("check-btn");
-        if (checkBtn) {
-            checkBtn.addEventListener("click", function () {
-                var experienceId = "${root.Experience.Id}";
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "/api/check-availability?experienceId=" + encodeURIComponent(experienceId));
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200) {
-                            alert("Dates are available for your selection.");
-                        } else {
-                            alert("Unable to check availability. Please try again.");
-                        }
-                    }
-                };
-                xhr.send();
-            });
-        }
-    })();
-</script>
 
 </body>
 </html>
