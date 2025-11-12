@@ -28,9 +28,11 @@ internal static class Render
                 break;
 
             case VarNode v:
-                var val = Eval.ResolvePath(v.Expr, ctx); // находим значение
-                sb.Append(val?.ToString() ?? string.Empty);
+                var val = Eval.ResolvePath(v.Expr, ctx);
+                var raw = v.Expr.EndsWith("Html", StringComparison.OrdinalIgnoreCase);
+                sb.Append(raw ? val?.ToString() ?? "" : System.Net.WebUtility.HtmlEncode(val?.ToString() ?? ""));
                 break;
+
 
             case IfNode i:
                 var ok = Eval.EvaluateCondition(i.Condition, ctx); // вычисляем условие

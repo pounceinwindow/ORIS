@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     initPriceSlider();
     initSinglePriceRange();
 });
+document.getElementById("read-toggle")?.addEventListener("click", () => {
+    const box = document.getElementById("desc-box");
+    box.classList.remove("faded");
+    box.style.maxHeight = "none";
+    console.log("Description expanded");
+});
 
 // Липкий header + shrink
 function initHeaderShrink() {

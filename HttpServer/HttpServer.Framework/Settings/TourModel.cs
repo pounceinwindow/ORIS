@@ -83,6 +83,16 @@ public class IndexViewModel
     public int Total { get; set; }
     public List<Experience> Items { get; set; } = new();
     public List<string> AvailableCategories { get; set; } = new();
+    public string CityFilter { get; set; } = "";
+    public string Q { get; set; } = "";
+    public string MinPriceText { get; set; } = "";
+    public string MaxPriceText { get; set; } = "";
+    public string RatingMinText { get; set; } = "";
+    public bool Instant { get; set; }
+    public bool Free { get; set; }
+    public List<string> SelectedCategories { get; set; } = new();
+    public List<string> TopCategories { get; set; } = new();   // строго 5 штук
+    public string ActiveCategory { get; set; } = "";    
 }
 
 public class ProductViewModel

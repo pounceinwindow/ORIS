@@ -12,6 +12,19 @@
 <!-- HEADER будет подгружен твоим скриптом -->
 <div data-include="header"></div>
 
+
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-frame">
+        $if(root.Details.Hero)
+        <img alt="${root.Details.Title}" src="${root.Details.Hero}">
+        $else
+        <img alt="${root.Details.Title}" src="/sem/img/hero-placeholder.jpg">
+        $endif
+        <button class="photos-btn">View all photos</button>
+    </div>
+</div>
 <div class="container">
     <!-- BREADCRUMBS -->
     <nav class="breadcrumbs">
@@ -23,18 +36,6 @@
         <span class="sep">/</span>
         <span>${root.Details.Category}</span>
     </nav>
-</div>
-
-<!-- HERO -->
-<div class="hero">
-    <div class="hero-frame">
-        $if(!string.IsNullOrEmpty(root.Details.Hero))
-        <img alt="${root.Details.Title}" src="${root.Details.Hero}">
-        $else
-        <img alt="${root.Details.Title}" src="/sem/img/hero-placeholder.jpg">
-        $endif
-        <button class="photos-btn">View all photos</button>
-    </div>
 </div>
 
 <div class="container">
@@ -102,13 +103,12 @@
             </section>
 
             <!-- What to expect -->
-            $if(!string.IsNullOrEmpty(root.Details.DescriptionHtml))
+            $if(root.Details.DescriptionHtml)
             <section class="expect">
                 <h2>What to expect</h2>
                 <div class="read-more faded" id="desc-box">
                     ${root.Details.DescriptionHtml}
                 </div>
-                <button class="read-toggle" id="read-toggle" type="button">Read more</button>
             </section>
             $endif
 
@@ -133,24 +133,36 @@
             </section>
 
             <!-- Meeting point -->
-            $if(!string.IsNullOrEmpty(root.Details.Meeting) || !string.IsNullOrEmpty(root.Details.Address))
+            $if(root.Details.Meeting)
             <section>
                 <h2>Meeting point</h2>
-                $if(!string.IsNullOrEmpty(root.Details.Meeting))
+                <p>${root.Details.Meeting}</p>
+                $if(root.Details.Address)
+                <p>${root.Details.Address}</p>
+                $endif
+            </section>
+            $else
+            $if(root.Details.Address)
+            <section>
+                <h2>Meeting point</h2>
+                <p>${root.Details.Address}</p>
+            </section>
+            $endif
+            $endif
+            <section>
+                <h2>Meeting point</h2>
+                $if(root.Details.Meeting)
                 <p>${root.Details.Meeting}</p>
                 $endif
-                $if(!string.IsNullOrEmpty(root.Details.Address))
+                $if(root.Details.Address)
                 <p>${root.Details.Address}</p>
                 $endif
 
-                <div class="map">
-                    <img alt="Meeting point map" src="/sem/img/map-placeholder.png">
-                </div>
             </section>
             $endif
 
             <!-- Cancellation policy -->
-            $if(!string.IsNullOrEmpty(root.Details.CancelPolicy))
+            $if(root.Details.CancelPolicy)
             <section>
                 <h2>Cancellation policy</h2>
                 <p>${root.Details.CancelPolicy}</p>
@@ -176,7 +188,7 @@
                         </div>
                     </div>
                     <div>
-                        $if(root.Reviews != null && root.Reviews.Any())
+                        $if(root.Reviews)
                         $foreach(var rv in root.Reviews)
                         <div class="book-row" style="border-top:none; padding:10px 0;">
                             <div>
@@ -261,7 +273,7 @@
             $foreach(var m in root.RelatedTours)
             <a class="card" href="/product?slug=${m.Slug}">
                 <div class="img-wrap">
-                    $if(!string.IsNullOrEmpty(m.HeroUrl))
+                    $if(m.HeroUrl)
                     <img alt="${m.Title}" src="${m.HeroUrl}">
                     $else
                     <img alt="${m.Title}" src="/sem/img/card-placeholder.jpg">
@@ -275,15 +287,6 @@
                 <div class="price">From ${m.PriceFrom}</div>
             </a>
             $endfor
-
-            $if(root.RelatedTours == null || !root.RelatedTours.Any())
-            <div class="card">
-                <div class="body">
-                    <div><b>More Loire Valley experiences coming soon</b></div>
-                    <p class="muted">Stay tuned for new tours and activities.</p>
-                </div>
-            </div>
-            $endif
         </div>
     </div>
 </section>

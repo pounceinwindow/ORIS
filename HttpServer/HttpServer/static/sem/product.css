@@ -399,13 +399,6 @@ h2 {
     max-height: 160px
 }
 
-.read-more.faded:after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 70px;
-    background: linear-gradient(transparent, #fff)
-}
 
 .read-toggle {
     border: 0;
