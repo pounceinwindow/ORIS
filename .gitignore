@@ -1,5 +1,6 @@
-/Homework1/
-/Homework4/
+bin/
+obj/
+.vs/
 /Homework5/HttpServer/settings.json
 /Homework5/HttpServer/email.json
 email.json  
