@@ -12,5 +12,3 @@
   HttpListener. Практика 5. (Библиотека, HtmlTemplater)					
   
   HttpListener. Практика 6-7. (Библиотека - Orm)					
-
-  HomeWork_8 — DotAndGame. Игра на WinForm и MAUI (клиент–сервер)
