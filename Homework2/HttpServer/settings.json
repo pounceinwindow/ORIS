@@ -1,6 +1,0 @@
-{
-    "StaticDirectoryPath":"static",
-    "Port": "8888" ,
-    "Domain": "http://localhost"
-
-}
