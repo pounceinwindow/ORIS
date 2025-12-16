@@ -1,16 +1,18 @@
 # ORIS  
-  HomeWork_1: [Верстка сайта: "Страница поиска" + "chatgpt"](HomeWork_1) 
+  Homework_1: [Верстка сайта: "Страница поиска" + "chatgpt"](Homework_1) 
   
-  HttpListener. Практика 1 (HTTP-сервер на C# , "Страница поиска")					
+  Homework_2: Практика 1 [HTTP-сервер на C# , "Страница поиска"](Homework_2)				
   
-  HttpListener. Практика 2 (Статические файлы, передача типов файлов)					
+  Homework_3: Практика 2 [Статические файлы, передача типов файлов, BONX](Homework_3)				
   
-  HttpListener. Практика 3-4 (Передача параметров из query в метод endpoint. Обработка ошибок)					
+  Homework_4: Практика 3-4 [Передача параметров из query в метод endpoint. Обработка ошибок](Homework_4)						
   
-  HttpListener. Практика 3-4. (Отправка сообщения на почту)					
+  Homework_5: Практика 3-4. [Отправка сообщения на почту, Шаблонизатор](Homework_5)					
   
-  HttpListener. Практика 5. (Библиотека, HtmlTemplater)					
+  Homework_6: Практика 5. [Библиотека - ORM, ADO.NET](Homework_6)				
   
-  HttpListener. Практика 6-7. (Библиотека - Orm)					
+  Homework_7: Практика 6-7. [LinqExpression](Homework_7)		
 
-  HomeWork_8 — DotAndGame. Игра на WinForm и MAUI (клиент–сервер)
+  HomeWork_8: GameAndDot. [Игра на WinForm и MAUI (клиент–сервер)](Homework_8)
+  
+  HomeWork_9: GameAndDot. [Игра с протоколом Xpackage](Homework_9)
